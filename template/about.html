@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load static %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		 <link rel="shortcut icon" href="{% static './img/ecart.webp'%}" type="image/x-icon">
+
+		 <title>Ecart</title>
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/slick.css'%}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme.css'%}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/select.css'%}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css'%}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}"/>
+
+		<!-- HTML5 shim and Respond.js'%} for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js'%} doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'%}"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js'%}"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +91 9876543210</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> ecart@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="login"><i class="fa fa-key"></i> Login</a></li>
+						
+					</ul>
+				</div>
+			</div>
+			
+			
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href=".." class="logo">
+									<img src="{% static './img/ekWhiteLogo.png'%}" alt="" style="height: 36px; width: 100px; margin-top: 12px;">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+						<script>
+							function copyTextValue() {
+								var e = document.getElementById("select");
+								var val = e.options[e.selectedIndex].value;
+								document.getElementById("1").value = val;
+							}
+						</script>
+						<!-- SEARCH BAR -->
+						
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Wishlist -->
+								<!-- <div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-heart-o"></i>
+										<span>Your Wishlist</span>
+										<div class="qty">{{datas5}}
+											
+										</div>
+									</a>
+									<div class="cart-dropdown" style="width: 200px;">
+										<div class="cart-list">
+											{% for i in datas4%}
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="{{i.item_details.mi.url}}" alt="" style="margin-left: 40px;">
+												</div>
+												
+												
+												<div class="product-body">
+													
+												</div>
+												<button class="delete"style="margin-left: 100px;"><a href="delete_w/{{i.pk}}" style="color: aliceblue;"><i class="fa fa-close"></i></a></button>
+											</div>
+											{% endfor%}
+										</div>
+										
+										<div class="cart-btns" style="width: 410px;">
+											<a href="viewcart">View  Wishlist</a>
+										</div>
+									</div>
+								</div> -->
+								<!-- /Wishlist -->
+
+								<!-- Cart -->
+								<!-- <div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										<i class="fa fa-shopping-cart"></i>
+										<span>Your Cart</span>
+										<div class="qty">{{datas3}}</div>
+									</a>
+									<div class="cart-dropdown">
+										<div class="cart-list">
+											{% for i in datas2%}
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="{{i.item_details.mi.url}}" alt="">
+												</div>
+												
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">{{i.item_details.pname}}</a></h3>
+													<h4 class="product-price"><span class="qty">x</span>{{i.item_details.price}}.00</h4>
+												</div>
+												<button class="delete"><a href="delete_c/{{i.pk}}" style="color: aliceblue;"><i class="fa fa-close"></i></a></button>
+											</div>
+											{% endfor%}
+
+											
+										</div>
+										<div class="cart-summary">
+											<small>{{datas3}}(s) selected</small>
+											<h5>SUBTOTAL:</h5>
+										</div>
+										<div class="cart-btns">
+											<a href="viewcart">View Cart</a>
+											<a href="checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+								</div> -->
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li ><a href="..">Home</a></li>
+						
+
+
+					
+						
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+		
+		
+		<!-- SECTION -->
+		
+		<!-- /SECTION -->
+
+		<!-- SECTION -->
+		
+		<!-- /SECTION -->
+
+		<!-- HOT DEAL SECTION -->
+		
+		<!-- /HOT DEAL SECTION -->
+
+		<!-- SECTION -->
+		
+		<!-- /SECTION -->
+
+		<!-- SECTION -->
+		
+		<br>
+			<section>
+				<div class = "image">
+				   <img src="{% static 'img/HD-wallpaper-colorful-laptop-with-black-background-black-aesthetic.jpg' %}" style="margin-left: 10px;">
+				</div>
+	
+				<div class = "content">
+					<h2>About Us</h2>
+					<span><!-- line here --></span>
+					<p>What is the work of Ekart?
+						At Ekart, we strive to create and deliver integrated supply chain solutions encompassing warehousing, distribution, dropship as well as multi-modal heavy/non unitized inventory movements to customers across industries.</p>
+					<ul class = "links">
+						<li><a href = "servies">service</a></li>
+						<div class = "vertical-line"></div>
+						<li><a href = "contact">Feedback</a></li>
+					</ul>
+					<ul class = "icons">
+						<li>
+							<i class = "fa fa-twitter"></i>
+						</li>
+						<li>
+							<i class = "fa fa-facebook"></i>
+						</li>
+						<li>
+							<i class = "fa fa-github"></i>
+						</li>
+						<li>
+							<i class = "fa fa-pinterest"></i>
+						</li>
+					</ul>
+				</div>
+			</section><br><br>
+			<div class="credit">Ecart<span style="color:tomato">❤</span> by <a href="https://www.learningrobo.com/">Website</a></div>
+		
+		<style>
+	
+	*{
+		box-sizing: border-box;
+		padding: 0;
+		margin: 0;
+	}
+	body{
+		font-family: 'Playfair Display', serif;
+		display: grid;
+		background-color:white;
+	
+		align-content: center;
+		min-height: 100vh;
+	}
+	section{
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: 70vh;
+		width: 75vw;
+		margin: 0 auto;
+		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		border-radius: 12px
+	}
+	.image{
+		background-color: rgb(247, 161, 62);
+        
+		display: flex;
+		border-radius: 12px 0 0 12px;
+	}
+	.image img{
+	height:50vh;
+	margin:50px auto
+	}
+	.content{
+		background-color: rgb(247, 161, 62);
+        color: black;
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		align-items: center;
+		border-radius: 0  12px 12px 0;
+		
+	}
+	.content h2{
+		text-transform: uppercase;
+		font-size: 36px;
+		letter-spacing: 6px;
+		opacity: 0.9;
+        
+	}
+	.content span{
+		height: 0.5px;
+		width: 80px;
+		background: #777;
+		margin: 30px 0;
+	}
+	.content p{
+		padding-bottom: 15px;
+		font-weight: 300;
+		font-size: 15px;
+		opacity: 0.7;
+		width: 60%;
+		text-align: center;
+		margin: 0 auto;
+		line-height: 1.7;
+		color: black;
+	}
+	.links{
+		margin: 15px 0;
+	}
+	.links li{
+		border: 2px solid black;
+		list-style: none;
+		border-radius: 5px;
+		padding: 10px 15px;
+		width: 160px;
+		text-align: center;
+	}
+	.links li a{
+		text-transform: uppercase;
+		color: #0e0d0d;
+		text-decoration: none;
+	}
+	.links li:hover{
+		border-color: #C850C0;
+	}
+	
+	.vertical-line{
+		height: 30px;
+		width: 3px;
+		background: #da631e;
+		margin: 0 auto;
+	}
+	.icons{
+		display: flex;
+		padding: 15px 0;
+	}
+	.icons li{
+		display: block;
+		padding: 5px;
+		margin: 5px;
+	}
+	.icons li i{
+		font-size: 26px;
+		opacity: 0.8;
+	}
+	.icons li i:hover{
+		color: #C850C0;
+		cursor: pointer;
+	}
+	
+	
+	/*****************/
+	
+	@media(max-width: 900px){
+		section{
+			grid-template-columns: 1fr;
+			width: 100%;
+			border-radius: none;
+		}
+		.image{
+			height: 100vh;
+			border-radius: none;
+		}
+		.content{
+			height: 100vh;
+			border-radius: none;
+		}
+		.content h2{
+			font-size: 20px;
+			margin-top: 50px;
+		}
+		.content span{
+			margin: 20px 0;
+		}
+		.content p{
+			font-size: 14px;
+		}
+		.links li a{
+			font-size: 14px;
+		}
+		.links{
+			margin: 5px 0;
+		}
+		.links li{
+			padding: 6px 10px;
+		}
+		.icons li i{
+			font-size: 15px;
+		}
+	}
+	.credit{
+		text-align: center;
+		color: #000;
+	  }
+	  
+	  .credit a{
+		text-decoration: none;
+		color:#000;
+	  } 
+	
+	
+		</style>
+		<!-- /SECTION -->
+
+		<!-- NEWSLETTER -->
+		
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>At Ekart, we strive to create and deliver integrated supply chain solutions encompassing warehousing, distribution, dropship as well as multi-modal heavy/non unitized inventory movements to customers across industries.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="headphones">headphone</a></li>
+									<li><a href="laptops">Laptops</a></li>
+									<li><a href="smartphones">Smartphones</a></li>
+									<li><a href="cameras">Cameras</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="about">About Us</a></li>
+									<li><a href="contact">Contact Us</a></li>
+									<!-- <li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Terms & Conditions</a></li> -->
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="myaccound">My Account</a></li>
+									<li><a href="viewcart">View Cart</a></li>
+									<li><a href="view_wisul">Wishlist</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								since 2024							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="{% static 'js/jquery.min.js'%}"></script>
+		<script src="{% static 'js/bootstrap.min.js'%}"></script>
+		<script src="{% static 'js/slick.min.js'%}"></script>
+		<script src="{% static 'js/nouislider.min.js'%}"></script>
+		<script src="{% static 'js/jquery.zoom.min.js'%}"></script>
+		<script src="{% static 'js/main.js'%}"></script>
+
+	</body>
+</html>

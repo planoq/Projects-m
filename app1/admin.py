@@ -1,0 +1,22 @@
+from django.contrib import admin
+from . models import *
+# Register your models here.
+admin.site.register(reg)
+admin.site.register(products)
+admin.site.register(Join)
+admin.site.register(user_details)
+# admin.site.register(booking)
+admin.site.register(c_rt)
+admin.site.register(Feedback)
+admin.site.register(preview)
+admin.site.register(Wishlist)
+admin.site.register(order)
+admin.site.register(profile)
+admin.site.register(orderitem)
+admin.site.register(PasswordReset)
+admin.site.register(profilepic)
+admin.site.register(SigleBooking)
+admin.site.register(alert)
+admin.site.register(profilepic_user)
+admin.site.register(product_pic)
+admin.site.register(PasswordResetemp)

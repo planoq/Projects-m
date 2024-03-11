@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load static %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		 <link rel="shortcut icon" href="{% static './img/ecart.webp'%}" type="image/x-icon">
+
+		 <title>Ecart</title>
+
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+ 		<!-- Bootstrap -->
+ 		<link type="text/css" rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}"/>
+
+ 		<!-- Slick -->
+ 		<link type="text/css" rel="stylesheet" href="{%static 'css/slick.css'%}"/>
+ 		<link type="text/css" rel="stylesheet" href="{%static 'css/slick-theme.css'%}"/>
+
+ 		<!-- nouislider -->
+ 		<link type="text/css" rel="stylesheet" href="{%static 'css/nouislider.min.css'%}"/>
+
+ 		<!-- Font Awesome Icon -->
+ 		<link rel="stylesheet" href="{%static 'css/font-awesome.min.css'%}">
+
+ 		<!-- Custom stlylesheet -->
+ 		<link type="text/css" rel="stylesheet" href="{%static 'css/style.css'%}"/>
+
+		<!-- HTML5 shim and Respond.js'%} for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js'%} doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'%}"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js'%}"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +91 9876543210</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> ecart@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						<li><a href="../myaccound"><i class="fa fa-user-o"></i> My Account</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="#" class="logo">
+									<img src="{% static './img/ekWhiteLogo.png'%}" alt="" style="height: 36px; width: 100px; margin-top: 12px;">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+					
+
+						<!-- SEARCH BAR -->
+						<div class="col-md-6">
+							<div class="header-search">
+								
+							</div>
+						</div>
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn">
+								<!-- Wishlist -->
+								
+								<!-- /Wishlist -->
+
+								<!-- Cart -->
+								
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li ><a href="../user">Home</a></li>
+						<li><a href="../user_laptop">Laptops</a></li>
+						<li ><a href="../user_headphone">Head Phone</a></li>
+						<li><a href="../user_camera">Cameras</a></li>
+						<li ><a href="../user_smartphone">Smartphones</a></li>
+						
+						
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- BREADCRUMB -->
+		
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				{% for i in datas%}
+				<form action="../checkout_single/{{i.pk}}" method="post">
+					{% csrf_token%}
+
+				<div class="row">
+					<!-- Product main img -->
+					<div class="col-md-5 col-md-push-2">
+						<div id="product-main-img">
+							<div class="product-preview">
+								<img src="{{i.mi.url}}" alt="" style="width: 200px; margin-left: 50px; margin-top: 15px;">
+							</div>
+
+							<div class="product-preview">
+								<img src="{{i.fi.url}}" alt="" style="width: 200px; margin-left: 50px;margin-top: 15px;"> 
+							</div>
+
+							<div class="product-preview">
+								<img src="{{i.sm.url}}" alt="" style="width: 200px; margin-left: 50px; margin-top: 15px;">
+							</div>
+
+							<div class="product-preview">
+								<img src="{{i.tm.url}}" alt="" style="width: 200px; margin-left: 50px; margin-top: 15px;">
+							</div>
+						</div>
+					</div>
+					<!-- /Product main img -->
+
+					<!-- Product thumb imgs -->
+					<div class="col-md-2  col-md-pull-5">
+						<div id="product-imgs">
+							<div class="product-preview">
+								<img src="{{i.mi.url}}" alt="">
+							</div>
+
+							<div class="product-preview">
+								<img src="{{i.fi.url}}" alt="">
+							</div>
+
+							<div class="product-preview">
+								<img src="{{i.sm.url}}" alt="">
+							</div>
+
+							<div class="product-preview">
+								<img src="{{i.tm.url}}" alt="">
+							</div>
+						</div>
+					</div>
+					<!-- /Product thumb imgs -->
+
+					<!-- Product details -->
+					<div class="col-md-5"style="overflow: hidden;overflow-y: scroll; height: 500px;">
+						<div class="product-details">
+							<h2 class="product-name"><input type="text" value="{{i.pname}}" name="pname" style="outline: none ;background: none;
+								border: none;"></h2>
+							<div>
+								<div class="product-rating">
+									<i class="fa fa-star" ></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star"></i>
+									<i class="fa fa-star-o"></i>
+								</div>
+								
+								<img src="{% static './img/ecart.webp'%}" alt="" style="height: 24px; width: 50px; margin-left: 20px;"> 
+							</div>
+							<div>
+								<span style="font-size: 30px;">₹</span><input type="number" id="p"value="{{i.price}}" name="price" style="width: 180px; padding: 0;
+								background: none;
+								border: none;
+								border-radius: 0;
+								outline: none;
+								appearance: none;
+								font-size: 40px;
+								font-weight: 900;
+								appearance: none;" class="product-price" readonly><del class="product-old-price" style="font-size: 23px;">₹{{i.discound}}</del> <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color: rgb(210, 205, 205);"></i></h3>
+								{% if po == 1 %}
+								<span class="product-available"  style="color: red;">Out Of Stock</span>
+
+								{% else %}
+								<span class="product-available"  style="color: green;">In Stock</span>
+
+								{% endif %}
+							</div>
+							<h5>Highlights</h5>
+							<p><i class="fa fa fa-tags" style="color: green;"></i> {{i.f1}}</p>
+							<p><i class="fa fa fa-tags" style="color: green;"></i> {{i.f2}}</p>
+							<p><i class="fa fa fa-tags" style="color: green;"></i> {{i.f3}}</p>
+							<p><i class="fa fa fa-tags" style="color: green;"></i> {{i.f4}}</p><br>
+							
+							<b>Available offers</b>
+<br><br>
+							<p><i class="fa fa fa-tags" style="color: green;"></i> Bank Offer5% Cashback on Flipkart Axis Bank CardT&C</p>
+							<p><i class="fa fa fa-tags" style="color: green;"></i> Partner OfferSign-up for Flipkart Pay Later & get free Times Prime Benefits worth ₹10,000*
+							</p>
+
+							<div class="product-options">
+								
+								
+									Color: <b style="color: rgb(65, 69, 70);">{{i.color}}</b>
+									<div class="dropdown" style="margin-top: -20px;">
+										<span style="margin-left: 200px; "><i class="fa fa-rupee" style="color: rgb(64, 101, 249);"></i> <b style="font-style:oblique;color:rgb(117, 113, 113)">Cash on Delivery available!!</b> </span>
+										<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+											
+											
+											<i class="fa fa-question" style=" background-color: rgb(235, 225, 225); border-radius: 70px;padding:4px;"></i>
+											<div class="qty">
+											
+											
+												
+											</div>
+										</a>
+										
+										<div class="cart-dropdown" style="width: 400px;">
+											<div class="cart-list">
+												
+												<div class="product-widget">
+													<div class="product-img">
+													</div>
+													<b>How do I place a Cash on Delivery (C-o-D) order?</b><br>
+All items that have the 'Cash on Delivery Available' icon are valid for order by Cash on Delivery. Add the item(s) to your cart and proceed to checkout. When prompted to choose a payment option, select 'Pay By Cash on Delivery'. Enter the CAPTCHA text as shown, for validation. Once verified and confirmed, your order will be processed for shipment in the time specified, from the date of confirmation. You will be required to make a cash-only payment to our courier partner at the time of delivery of your order to complete the payment.<br>
+ <B>Terms & Conditions</B><br>
+ <li>e-Gift Vouchers or Store Credit cannot be used for C-o-D orders.</li> 
+ <li>Cash-only payment at the time of delivery.</li>
+													
+													<div class="product-body">
+														
+													</div>
+												</div>
+												
+											</div>
+											
+											<div class="cart-btns" style="width: 410px;">
+												
+												
+												
+											</div>
+											
+										</div>
+										
+									</div>
+									
+								</label>
+							</div>
+							{% if po != 1 %}
+							<div class="qty-label">
+								Qty :<input type="text" value="1" id="quantity"  name="quantity" onkeyup="multiply()" style="width:40px;">
+								Total Price: <b>₹<input  name="total_l" value="{{i.price}}" id="TOTAL"readonly style="width: 70px; height: 30px;border: none;
+									border-radius: 0;
+									outline: none;
+									appearance: none;
+									font-size: 15px;
+									appearance: none;
+									color: rgb(178, 26, 26);" /></b>
+							</div>
+							{% endif %}
+							
+							<div class="add-to-cart">
+								
+								{% if po != 1 %}
+								<br><br><a href="../r6/{{i.pk}}"><button class="add-to-cart-btn" style="background-color: #fb641b; border-radius: 3px;"><i class="fa fa-shopping-cart"></i> Book Now</button></a>
+								{% endif %}
+							</div>
+							
+							
+							
+						</div>
+						<h5 style="margin-left: 150px;">Reviews</h5>
+						{% for i in d%}
+						{% if i.star > 2 %}
+						<div style="background-color: green; width: 35px; color: white; border-radius: 4px; height: 25px;"><p style="margin-left: 3px;">{{i.star}} <i class="fa fa-star"></i></p></div><p style="margin-left: 50px; margin-top: -20px;">{{i.text}}</p>
+						{% else %}
+						<div style="background-color: rgb(244, 11, 8); width: 35px; color: white; border-radius: 4px; height: 25px;"><p style="margin-left: 3px;">{{i.star}} <i class="fa fa-star"></i></p></div><p style="margin-left: 50px; margin-top: -20px;">{{i.text}}</p>
+						{% endif %}
+						<img src="{{i.photo.url}}" style="width: 80px;"><br><br>
+						<p>Ecart Customer</p><p>---------------------------------------------------------------------</p>
+						
+						{% endfor%}
+						<img src="{% static 'img/Flipkart-SuperCoin.webp'%}" style="width: 200px;">
+						<img src="{% static 'img/341.png'%}" style="width: 50px;">
+						<p><i class="fa fa-shield" aria-hidden="true" style="font-size: 25px;"></i> Safe and Secure Payments.Easy returns.100% Authentic products.</p>
+
+					</div>
+					<!-- /Product details -->
+
+					<!-- Product tab -->
+					<div class="col-md-12">
+						<div id="product-tab">
+							<!-- product tab nav -->
+							<ul class="tab-nav">
+								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+								<li><a data-toggle="tab" href="#tab3">Reviews</a></li>
+								<!-- <li><a data-toggle="tab" href="#tab3">Reviews</a></li> -->
+							</ul>
+							<!-- /product tab nav -->
+
+							<!-- product tab content -->
+							<div class="tab-content">
+								<!-- tab1  -->
+								<div id="tab1" class="tab-pane fade in active">
+									<div class="row">
+										<div class="col-md-12">
+											{{i.dis}}
+										</div>
+									</div>
+								</div>
+								<!-- /tab1  -->
+								
+								<!-- tab2  -->
+								
+								<!-- /tab2  -->
+
+								<!-- tab3  -->
+								<div id="tab3" class="tab-pane fade in">
+									<div class="row">
+										<!-- Rating -->
+										<div class="col-md-3">
+											<div id="rating">
+												<div class="rating-avg">
+													
+												</div>
+												<ul class="rating">
+													<li>
+													
+														<div class="rating-progress">
+														</div>
+													</li>
+													<li>
+														
+														<div class="rating-progress">
+														</div>
+													</li>
+													<li>
+														
+														<div class="rating-progress">
+															<div></div>
+														</div>
+													</li>
+													<li>
+														
+														<div class="rating-progress">
+															<div></div>
+														</div>
+													</li>
+													<li>
+														
+														<div class="rating-progress">
+															<div></div>
+														</div>
+													</li>
+												</ul>
+											</div>
+										</div>
+										<!-- /Rating -->
+
+										<!-- Reviews -->
+										 <div class="col-md-6">
+											{% for i in datas2%}
+											<div id="reviews">
+												<ul class="reviews">
+													
+													<li>
+														<div class="review-heading">
+															<h5 class="name">{{i.name}}</h5>
+															<p class="date">{{i.date}}</p>
+															<div class="review-rating">
+																
+																{{i.star}}<i class="fa fa-star"></i>
+																
+						
+															</div>
+														</div>
+														<div class="review-body">
+															<p>{{i.text}}</p>  <p>{{i.email}}</p>
+														</div>
+														
+													</li>
+												</ul>
+											</div>
+											{% endfor%}
+										</form>
+										</div> 
+										<!-- /Reviews -->
+										<img src="{% static 'img/peerevaluationreview_header.gif'%}" style="margin-left: -640px; filter: grayscale(50%); margin-top: 40px; width: 150px;">
+										<!-- Review Form -->
+										 <div class="col-md-3">
+											<div id="review-form">
+												{% for i in datas%}
+												<form  action="../Preview/{{i.pk}}" method="post" enctype="multipart/form-data">
+													{%csrf_token%}
+													<input class="input" type="text" value="{{i.pk}}" name="pp" style="display: none;">
+													{% endfor%}
+													<input class="input" type="text" placeholder="Your Name" name="name" required><br><br>
+													<input class="input" type="email" placeholder="Your Email" name="email" required><br><br>
+													<input class="input" type="file" placeholder="" name="ph" required><br><br>
+													<textarea class="input" placeholder="Your Review" name="text" required></textarea><br>
+														<div class="">
+															<input id="star1" name="rating" value="1" type="radio"><label>1<i class="fa fa-star"></i></label>
+															<input id="star2" name="rating" value="2" type="radio"><label>2 <i class="fa fa-star"></i></label>
+															<input id="star3" name="rating" value="3" type="radio"><label>3<i class="fa fa-star"></i></label>
+															<input id="star4" name="rating" value="4" type="radio"><label>4<i class="fa fa-star"></i></label>
+															<input id="star5" name="rating" value="5" type="radio"><label>5<i class="fa fa-star"></i></label>
+														</div><br>
+													{% for i in datas %}
+													{% if i.pname in l %}
+													{% for i in datas %}
+													<a href="../Preview/{{i.pk}}"><input class="primary-btn" type="submit" ></a>
+													{% endfor %}
+													{% else %}
+													<a href="" class="primary-btn" id="q" onclick="ab()">Submit</a>
+													{% endif %}
+													{% endfor %}
+												</form>
+												<script>
+													function ab(){
+													a=document.getElementById(q);
+													alert('Please Purchase This Product!!!!')
+													}
+									
+			
+												</script>
+											</div>
+										</div> 
+										<!-- /Review Form -->
+									</div>
+									
+								</div>
+								<!-- /tab3  -->
+							</div>
+							<!-- /product tab content  -->
+						</div>
+					</div>
+					<!-- /product tab -->
+				</div>
+				{% endfor %}
+				<!-- /row -->
+			</div>
+		
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- Section -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					
+
+					<!-- product -->
+					
+
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /Section -->
+
+		<!-- NEWSLETTER -->
+
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>At Ekart, we strive to create and deliver integrated supply chain solutions encompassing warehousing, distribution, dropship as well as multi-modal heavy/non unitized inventory movements to customers across industries.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-phone"></i> +91 9876543210</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> ecart@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="../user_headphone">headphone</a></li>
+									<li><a href="../user_laptop">Laptops</a></li>
+									<li><a href="../user_smartphone">Smartphones</a></li>
+									<li><a href="../user_camera.html">Cameras</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="../about">About Us</a></li>
+
+									<li><a href="../contact">Contact Us</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Terms & Conditions</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="myaccound">My Account</a></li>
+									<li><a href="viewcart">View Cart</a></li>
+									<li><a href="#">Wishlist</a></li>
+									<li><a href="#">Track My Order</a></li>
+									<li><a href="#">Help</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								since 2024							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="{% static 'js/jquery.min.js'%}"></script>
+		<script src="{% static 'js/totalprice.js'%}"></script>
+		<script src="{% static 'js/bootstrap.min.js'%}"></script>
+		<script src="{% static 'js/slick.min.js'%}"></script>
+		<script src="{% static 'js/nouislider.min.js'%}"></script>
+		<script src="{% static 'js/jquery.zoom.min.js'%}"></script>
+		<script src="{% static 'js/main.js'%}"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+	</body>
+</html>

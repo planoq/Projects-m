@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load static %}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<title>Ecart</title>
+		<link rel="shortcut icon" href="{% static './img/ecart.webp'%}" type="image/x-icon">
+
+		<!-- Google font -->
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+		<!-- Bootstrap -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css'%}"/>
+
+		<!-- Slick -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/slick.css'%}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme.css'%}"/>
+
+		<!-- nouislider -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css'%}"/>
+
+		<!-- Font Awesome Icon -->
+		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css'%}">
+
+		<!-- Custom stlylesheet -->
+		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css'%}"/>
+		<link type="text/css" rel="stylesheet" href="{% static 'css/menu.css'%}"/>
+
+
+		<!-- HTML5 shim and Respond.js'%} for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js'%} doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'%}"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js'%}"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<div class="container">
+					<ul class="header-links pull-left">
+						<li><a href="#"><i class="fa fa-phone"></i> +91 9876543210</a></li>
+						<li><a href="#"><i class="fa fa-envelope-o"></i> ecart@email.com</a></li>
+						<li><a href="#"><i class="fa fa-map-marker"></i> 1734 Stonecoal Road</a></li>
+					</ul>
+					<ul class="header-links pull-right">
+						
+						</form>
+						
+						<li><nav style="margin-right: -40px;">
+							<div class="menu">
+							  <input type="radio"
+								name="selected-menu"
+								id="selected-menu1"
+								class="menu--selector">
+							  <label class="" for="selected-menu1" style="margin-left: 40px;"><i class="fa fa-gear fa-spin" style="color: white;font-size:19px"></i></label>
+							  <ul class="menu--items">
+								<li class="menu--item"><a href="myaccound">Your Profile</a></li><br>
+								<li class="menu--item"><a href="accound_edit">Profile Edit</a></li><br>
+								<li class="menu--item"><a href="myorder">My oder</a></li><br>
+								<li style="margin-left: 7px;"><a href="logout"><i class="fa fa-sign-out"></i>Logout</a></li>
+								</ul>
+							</div>
+						
+						  </nav></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /TOP HEADER -->
+			
+			
+			<!-- MAIN HEADER -->
+			<div id="header" >
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="user" class="logo">
+									<img src="{% static './img/ekWhiteLogo.png'%}" alt="" style="height: 36px; width: 100px; margin-top: 12px;">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<script>
+							function copyTextValue() {
+								var e = document.getElementById("select");
+								var val = e.options[e.selectedIndex].value;
+								document.getElementById("1").value = val;
+							}
+						</script>
+						<!-- SEARCH BAR -->
+						<div class="col-md-6" style="margin-left: -30px;">
+							<div class="header-search">
+								<form action="search_user" method="post">
+									{% csrf_token%}
+									<select class="input-select" id="select"onchange="copyTextValue()">
+										<option value="">All Categories</option>
+										<option value="laptop">Laptop</option>
+										<option value="smartphone">Smartphone</option>
+										<option value="camera">Camera</option>
+										<option value="headphone">headphone</option>
+										<!-- <option value="myaccound">Myaccound</option>
+										<option value="cart">Cart</option>
+										<option value="checkout">Checkout</option>
+										<option value="Feedback">Feedback</option> -->
+									</select>
+									<input class="input" id="1" name="sr" style="display: none;" required>
+									<input class="input" placeholder="Search here" id="2" name="sp" >
+									<input type="submit" class="search-btn">
+								</form>
+							</div>
+						</div>
+
+						<!-- ACCOUNT -->
+						
+						<div class="col-md-3 clearfix">
+							<div class="header-ctn" >
+								<!-- Wishlist -->
+								
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										{% if datas5 != 0%}
+										<i class="fa fa-solid fa-heart" style="color: rgb(249, 64, 64);"></i>
+										<span>Your Wishlist</span>
+										<div class="qty">{{datas5}}
+										{% else %}
+										<i class="fa fa-heart-o" ></i>
+										<span>Your Wishlist</span>
+										<div>
+										{% endif %}
+										
+											
+										</div>
+									</a>
+									{% if datas5 != 0%}
+									<div class="cart-dropdown" style="width: 200px;">
+										<div class="cart-list">
+											{% for i in datas4%}
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="{{i.item_details.mi.url}}" alt="" style="margin-left: 40px;">
+												</div>
+												
+												
+												<div class="product-body">
+													
+												</div>
+												<button class="delete"style="margin-left: 100px;"><a href="delete_w/{{i.pk}}" style="color: aliceblue;"><i class="fa fa-close"></i></a></button>
+											</div>
+											{% endfor%}
+										</div>
+										
+										<div class="cart-btns" style="width: 410px;">
+											
+											<a href="view_wisul">View  Wishlist</a>
+											
+										</div>
+										
+									</div>
+									{% endif%}
+								</div>
+								
+								<!-- /Wishlist -->
+
+								<!-- Cart -->
+								<div class="dropdown">
+									<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+										{% if datas3 != 0 %}
+										<i class="fa fa-shopping-cart"></i>
+										<span>Your Cart</span>
+										<div class="qty" >{{datas3}}</div>
+										{% else %}
+										<i class="fa fa-shopping-cart"></i>	
+										<span>Your Cart</span>
+										<div></div>									
+										{% endif %}
+
+										
+									</a>
+									{% if datas3 != 0 %}
+									<div class="cart-dropdown">
+										<div class="cart-list">
+											{% for i in datas2%}
+											<div class="product-widget">
+												<div class="product-img">
+													<img src="{{i.item_details.mi.url}}" alt="">
+												</div>
+												
+												<div class="product-body">
+													<h3 class="product-name"><a href="#">{{i.item_details.pname}}</a></h3>
+													<h4 class="product-price"><span class="qty">x</span>{{i.item_details.price}}.00</h4>
+												</div>
+												<button class="delete"><a href="delete_c/{{i.pk}}" style="color: aliceblue;"><i class="fa fa-close"></i></a></button>
+											</div>
+											{% endfor%}
+
+											
+										</div>
+										<div class="cart-summary">
+											<small>{{datas3}}(s) selected</small>
+											<h5>SUBTOTAL:{{sum}}</h5>
+										</div>
+										<div class="cart-btns">
+											<a href="viewcart">View Cart</a>
+											<a href="checkout">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+										</div>
+									</div>
+									{% endif %}
+								</div>
+								<!-- /Cart -->
+
+								<!-- Menu Toogle -->
+								<div class="menu-toggle">
+									<a href="#">
+										<i class="fa fa-bars"></i>
+										<span>Menu</span>
+									</a>
+								</div>
+								<!-- /Menu Toogle -->
+							</div>
+						</div>
+						<!-- /ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					<ul class="main-nav nav navbar-nav">
+						<li ><a href="user">Home</a></li>
+						<li><a href="user_laptop">Laptops</a></li>
+						<li><a href="user_headphone">Head Phone</a></li>
+						<li ><a href="user_camera">Cameras</a></li>
+						<li ><a href="user_smartphone">Smartphones</a></li>
+						<li><div class="header-search" style="margin-left: 700px; margin-top: -55px;">
+							<form action="search_user" method="post">
+								{% csrf_token%}
+								<select class="input-select" id="select6"onchange="copyTextValuee()" style="border-radius: 1px;">
+									<option value="">All Brands</option>
+									{% for i in dff %}
+										<option value="{{i}}">{{i}}</option>
+									{% endfor %}
+									<!-- <option value="myaccound">Myaccound</option>
+									<option value="cart">Cart</option>
+									<option value="checkout">Checkout</option>
+									<option value="Feedback">Feedback</option> -->
+								</select>							
+								<input class="input" id="5" name="sr" style="width: 130px;" required>
+								<input type="submit" class="search-btn" style="border-radius: 1px;background-color: black;">
+							</form>
+						</div></li>				
+					</ul>
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+		
+		
+
+
+
+	
+			
+		</div>
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- shop -->
+					<div class="col-md-3 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static './img/shop01.png'%}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Laptop<br>Collection</h3>
+								<a href="user_laptop" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-3 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static './img/shop03.png'%}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Head Phone<br>Collection</h3>
+								<a href="user_headphone" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<!-- /shop -->
+
+					<!-- shop -->
+					<div class="col-md-3 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static './img/shop02.png'%}" alt="">
+							</div>
+							<div class="shop-body">
+								<h3>Cameras<br>Collection</h3>
+								<a href="user_camera" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-3 col-xs-6">
+						<div class="shop">
+							<div class="shop-img">
+								<img src="{% static './img/-original-imaghx9qnhzxegu2_3SXToeS.webp'%}" alt="" style="width: 128px; margin-left: 50px;">
+							</div>
+							<div class="shop-body">
+								<h3>SmartPhone<br>Collection</h3>
+								<a href="user_smartphone" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i></a>
+							</div>
+						</div>
+						
+					</div>
+					<!-- /shop -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+		
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<script>
+						function copyTextValuee() {
+							var e = document.getElementById("select6");
+							var val = e.options[e.selectedIndex].value;
+							document.getElementById("5").value = val;
+						}
+					</script>
+					<!-- section title -->
+					
+					<!-- /section title -->
+
+					<!-- Products tab & slick -->
+					<div class="col-md-12" >
+						<div class="row">
+							<div class="products-tabs">
+								<!-- tab -->
+								<div id="tab1" class="tab-pane active">
+									<div class="products-slick" data-nav="#slick-nav-1">
+										<!-- product -->
+										{% for i in datasb %}
+												<div class="product" >
+													<div class="product-img" >
+														{% if i.category == 'smartphone' %}
+														<a href="quick_view/{{i.pk}}"><img src="{{i.mi.url}}" alt="" style="width: 120px; height: 240px; margin-left: 70px; margin-top: 4px;"></a>
+														<div class="product-label">
+															<span class="new">NEW</span>
+														</div>
+														{% else %}
+														<a href="quick_view/{{i.pk}}"><img src="{{i.mi.url}}" alt="" style="width: 154px; height: 145px; margin-left: 50px; margin-top: 4px;"></a>
+														<div class="product-label">
+															<span class="new">NEW</span>
+														</div>
+														{% endif %}
+													</div>
+													<div class="product-body">
+														<h3 class="product-name"><a href="quick_view/{{i.pk}}">{{i.pname}}</a></h3>
+														<h4 class="product-price">₹{{i.price}}<del class="product-old-price">₹{{i.discound}}</del></h4>
+														
+														
+														<div class="product-btns">
+															{% if i in datas7 %}
+															<button class="add-to-wishlist"><i class="fa fa-solid fa-heart" style="color: rgb(239, 14, 14);"></i><span class="tooltipp"> already  add  to  wishlist</a></span></button>
+															{% else %}
+															
+															<button class="add-to-wishlist"><a href="wishlist/{{i.pk}}"><i class="fa fa-heart-o" style="color: red;"></i><span class="tooltipp">add to wishlist</a></span></button>
+
+															{% endif %}
+															<i class="fa fa-exchange"></i>
+															<button class="quick-view"><a href="quick_view/{{i.pk}}"><i class="fa fa-eye"></i></a><span class="tooltipp">quick view</span></button>
+														</div>
+														
+													</div>
+													
+													<div class="add-to-cart">
+														{% if i in datas6 %}
+														<a href="viewcart"><button class="add-to-cart-btn" style="background-color: #fb641b; border-radius: 3px;"><i class="fa fa-bolt" style="color: white;"></i>Go to cart</button></a>
+
+														<br><br>
+														{% else %}
+														<a href="add_to_cart/{{i.pk}}"><button class="add-to-cart-btn" style="background-color: #ff9f00; size: 10px; border-radius: 3px;"><i class="fa fa-shopping-cart" style="color: white;"></i>Add to cart</button></a>
+
+														{% endif%}
+
+													</div>
+													
+												</div>
+												
+												{% endfor%}
+												
+										<!-- /product -->
+
+										
+									</div>
+									<br>
+									<div id="slick-nav-1" class="products-slick-nav"></div>
+								</div>
+								<!-- /tab -->
+							</div>
+						</div>
+					</div>
+					<!-- Products tab & slick -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+<br>
+		<!-- HOT DEAL SECTION -->
+		<div class="w3-content w3-section" style="width: 100%; background-color: rgb(54, 52, 48); display: flex;">
+
+			
+
+		  </div>
+		<!-- /HOT DEAL SECTION -->
+	
+		  
+		  <script>
+			var myIndex = 0;
+			carousel();
+			
+			function carousel() {
+			  var i;
+			  var x = document.getElementsByClassName("mySlides");
+			  for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";  
+			  }
+			  myIndex++;
+			  if (myIndex > x.length) {myIndex = 1}    
+			  x[myIndex-1].style.display = "block";  
+			  setTimeout(carousel, 1000); // Change image every 2 seconds
+			}
+			</script>
+		<!-- SECTION -->
+		
+		<!-- /SECTION -->
+
+		<!-- SECTION -->
+	
+		<!-- /SECTION -->
+
+		<!-- NEWSLETTER -->
+		<div style="background-color: rgb(232, 214, 12); margin-top: 30px; display: flex;">
+			<img src="{% static 'img/female-hand-holding-camera-bright-yellow-background_164357-4697.jpg'%}" style="width: 400px;height:300px; margin-left: 900px; ">
+		
+			
+			<div style=" margin-top: 90px; margin-left: -1270px;">
+				<h2 class="text-uppercase" style="font-size: 50px;">hot deal this week</h2>
+		
+				<p style="font-size: 34px; color: white">New Collection Up to 50% OFF</p>
+			<a class="primary-btn cta-btn" href="#">Shop now</a>
+			</div>
+			
+		</div>
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>At Ekart, we strive to create and deliver integrated supply chain solutions encompassing warehousing, distribution, dropship as well as multi-modal heavy/non unitized inventory movements to customers across industries.</p>
+								<ul class="footer-links">
+									<li><a href="https://www.google.com/maps/place/Ekm/@10.0006659,76.2808343,17z/data=!3m1!4b1!4m6!3m5!1s0x3b080d13084fb5b1:0x695f60bc3181d3a9!8m2!3d10.0006659!4d76.2834092!16s%2Fg%2F11j37gx2k_?entry=ttu"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+91 9876543210</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>ecart@email.com</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="user_headphone">headphone</a></li>
+									<li><a href="user_laptops">Laptops</a></li>
+									<li><a href="user_smartphone">Smartphones</a></li>
+									<li><a href="user_camera">Cameras</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Information</h3>
+								<ul class="footer-links">
+									<li><a href="about">About Us</a></li>
+									<li><a href="contact">Contact Us</a></li>
+									<!-- <li><a href="#">Privacy Policy</a></li>
+									<li><a href="#">Orders and Returns</a></li>
+									<li><a href="#">Terms & Conditions</a></li> -->
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Service</h3>
+								<ul class="footer-links">
+									<li><a href="myaccound">My Account</a></li>
+									<li><a href="viewcart">View Cart</a></li>
+									<li><a href="view_wisul">Wishlist</a></li>
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								since 2024
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="{% static 'js/jquery.min.js'%}"></script>
+		<script src="{% static 'js/bootstrap.min.js'%}"></script>
+		<script src="{% static 'js/slick.min.js'%}"></script>
+		<script src="{% static 'js/nouislider.min.js'%}"></script>
+		<script src="{% static 'js/jquery.zoom.min.js'%}"></script>
+		<script src="{% static 'js/main.js'%}"></script>
+
+	</body>
+</html>

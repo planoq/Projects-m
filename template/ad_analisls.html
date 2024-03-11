@@ -1,0 +1,203 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    \ Graph bar 
+<div class="container">
+  Bar one 
+  <div class="bar1 "></div>
+  Bar two 
+  <div class="bar2 two">{{datas}}</div>
+  Bar three   
+  <div class="bar3 three"></div>
+  
+  Using the id="v-meter" 
+  <ul id="v-meter">
+    <li><div></div></li>
+    <li><div></div></li>
+    <li><div>{{datas}}</div></li>
+    <li><div>10</div></li>
+    <li><div>5</div></li>
+  </ul>
+</div>
+</body>
+<style>
+    @font-face {font-family: "Cera Pro"; src: url("//db.onlinewebfonts.com/t/2f407d03c34861737fe4b85ab35eb729.eot"); src: url("//db.onlinewebfonts.com/t/2f407d03c34861737fe4b85ab35eb729.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2f407d03c34861737fe4b85ab35eb729.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2f407d03c34861737fe4b85ab35eb729.woff") format("woff"), url("//db.onlinewebfonts.com/t/2f407d03c34861737fe4b85ab35eb729.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2f407d03c34861737fe4b85ab35eb729.svg#Cera Pro") format("svg"); }
+
+:root {
+   --container-background: #9c82820e;
+   --font: 'Cera Pro', helvetica, sans-serif;
+   --container-border: #bbb;
+}
+
+* {
+   list-style: none;
+   margin: 0;
+   font-family: var(--font);
+}
+
+body {
+   background: #1a1a1a;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.container {
+   position: relative;
+   width: 700px;
+   height: 600px;
+   background: var(--container-background);
+   border: 1px solid var(--container-border) !important;
+   border-top: none;
+   border-right: none;
+   margin-top: 100px;
+   z-index: 0;
+   border-radius: 2vh;
+   box-shadow: inset -0px 2px 2px #bbb, inset -2px -2px 2px #111111;
+}
+
+#v-meter {
+   position: relative;
+   top: 0px;
+   left: -30px;
+   width: 700px;
+   height: 500px;
+   z-index: 100;
+}
+
+#v-meter li {
+   position: relative;
+   left: -11px;
+   height: 100px;
+   border-bottom: solid 1px #1785a7;
+}
+
+#v-meter li::before {
+   content: '';
+   position: absolute;
+   top: -15px;
+   left: -30px;
+   height: 100%;
+   border-bottom: solid 1px #1785a7;
+   transform: skewY(45deg) !important;
+   width: 30px;
+}
+
+#v-meter li div {
+   position: absolute;
+   width: 80px;
+   font-size: 17px !important;
+   left: -115px;
+   padding-top: 55px;
+   color: white;
+   text-align: right;
+}
+
+.bar1 {
+   width: 50px;
+   height: 32%;
+   background: rgba(247, 127, 22, 1);
+   position: absolute;
+   left: 10%;
+   bottom: 5px;
+   z-index: 1000;
+   margin: 0 40px;
+}
+.bar2 {
+   width: 50px;
+   height: 32%;
+   background: rgb(43, 247, 7);
+   position: absolute;
+   left: 10%;
+   bottom: 5px;
+   z-index: 1000;
+   margin: 0 40px;
+}
+.bar3 {
+   width: 50px;
+   height: 32%;
+   background: rgb(236, 58, 4);
+   position: absolute;
+   left: 10%;
+   bottom: 5px;
+   z-index: 1000;
+   margin: 0 40px;
+}
+.bar1::after {
+   content: '';
+   width: 50px;
+   height: 20px;
+   background: rgb(177, 131, 90);
+   position: absolute;
+   top: -20px;
+   left: -10px;
+   transform: skewX(45deg);
+}
+.bar2::after {
+   content: '';
+   width: 50px;
+   height: 20px;
+   background: rgb(80, 121, 80);
+   position: absolute;
+   top: -20px;
+   left: -10px;
+   transform: skewX(45deg);
+}.bar3::after {
+   content: '';
+   width: 50px;
+   height: 20px;
+   background: rgb(171, 86, 13);
+   position: absolute;
+   top: -20px;
+   left: -10px;
+   transform: skewX(45deg);
+}
+.bar1::before {
+   content: '';
+   width: 20px;
+   height: 100%;
+   background: rgb(174, 112, 25);
+   position: absolute;
+   top: -10px;
+   left: -20px;
+   transform: skewY(45deg);
+}
+.bar2::before {
+   content: '';
+   width: 20px;
+   height: 100%;
+   background: rgb(66, 97, 69);
+   position: absolute;
+   top: -10px;
+   left: -20px;
+   transform: skewY(45deg);
+}
+
+.bar3::before {
+   content: '';
+   width: 20px;
+   height: 100%;
+   background: rgb(135, 39, 36);
+   position: absolute;
+   top: -10px;
+   left: -20px;
+   transform: skewY(45deg);
+}
+
+
+.two {
+   left: 25%;
+   height: {{datas}}%;
+}
+
+.three {
+   left: 40%;
+   height: 20%;
+}
+</style>
+</html> -->

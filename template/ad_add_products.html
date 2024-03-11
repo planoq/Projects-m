@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% load static%}
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		 <link rel="shortcut icon" href="{% static './img/ecart.webp'%}" type="image/x-icon">
+
+		 <title>Ecart</title>
+
+ 		<!-- Google font -->
+ 		<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+
+ 		<!-- Bootstrap -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"/>
+
+ 		<!-- Slick -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/slick.css' %}"/>
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/slick-theme.css' %}"/>
+
+ 		<!-- nouislider -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/nouislider.min.css' %}"/>
+
+ 		<!-- Font Awesome Icon -->
+ 		<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+
+ 		<!-- Custom stlylesheet -->
+ 		<link type="text/css" rel="stylesheet" href="{% static 'css/style.css' %}"/>
+
+		<!-- HTML5 shim and Respond.js'%} for IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js'%} doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js'%}'%}"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js'%}'%}"></script>
+		<![endif]-->
+
+    </head>
+	<body>
+		<!-- HEADER -->
+		<header>
+			<!-- TOP HEADER -->
+			<div id="top-header">
+				<ul class="header-links pull-right">
+					
+					<li><a href="registration"><i class=""></i> </a></li>
+					<li><a href="logout"><i class="fa fa-user-o"></i>LOGOUT</a></li>
+					<li><a href="join"><i class=""></i> </a></li>
+				</ul>
+				<div class="container">
+				</div>
+			<!-- /TOP HEADER -->
+			
+			</div>
+			<!-- /TOP HEADER -->
+
+			<!-- MAIN HEADER -->
+			<div id="header">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<!-- LOGO -->
+						<div class="col-md-3">
+							<div class="header-logo">
+								<a href="admin" class="logo">
+									<img src="{% static './img/ekWhiteLogo.png'%}" alt="" style="height: 36px; width: 100px; margin-top: 12px;">
+								</a>
+							</div>
+						</div>
+						<!-- /LOGO -->
+
+						<!-- SEARCH BAR -->
+						
+						<!-- /SEARCH BAR -->
+
+						<!-- ACCOUNT -->
+					</div>
+					<!-- row -->
+				</div>
+				<!-- container -->
+			</div>
+			<!-- /MAIN HEADER -->
+		</header>
+		<!-- /HEADER -->
+
+		<!-- NAVIGATION -->
+		<nav id="navigation">
+			<!-- container -->
+			<div class="container">
+				<!-- responsive-nav -->
+				<div id="responsive-nav">
+					<!-- NAV -->
+					
+					<!-- /NAV -->
+				</div>
+				<!-- /responsive-nav -->
+			</div>
+			<!-- /container -->
+		</nav>
+		<!-- /NAVIGATION -->
+
+		<!-- BREADCRUMB -->
+		<div id="breadcrumb" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+                    
+					<div class="col-md-12">
+                        <i class="fa fa-arrow-circle-left"><a href="ad_laptop">back</a></i>
+						<h3 class="breadcrumb-header">Add New laptop</h3>
+						<ul class="breadcrumb-tree">
+							<li><a href="#">Home</a></li>
+							<li class="active">laptop</li>
+						</ul>
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /BREADCRUMB -->
+
+		<!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+
+					<div class="col-md-7">
+						<!-- Billing Details -->
+						<div class="billing-details">
+							<div class="section-title">
+								<h3 class="title">New Product</h3>
+							</div>
+                            <form action="ad_add_products" method="post" enctype="multipart/form-data">
+                                {% csrf_token%}
+								<h5>category</h5>
+                                <div class="form-group">
+									laptop <input type="radio" value="laptop" name="1">
+									smartphone <input type="radio" value="smartphone" name="1">
+									headphone <input type="radio" value="headphone" name="1">
+									camera <input type="radio" value="camera" name="1">
+									topselling<input type="radio" value="topselling" name="1">
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="pname" placeholder="Product Name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="input" type="text" name="price" placeholder="Price" required>
+                                </div>
+								<h5>Discound</h5>
+                                <div class="form-group">
+                                    <input class="input" type="number" name="discound" required>
+                                </div>
+								<h5>Main Image</h5>
+                                <div class="form-group">
+                                    <input class="input" type="file" name="m" required>
+                                </div>
+								<h5>First Image</h5>
+                                <div class="form-group">
+                                    <input class="input" type="file" name="f" required>
+                                </div>
+								<h5>Second Image</h5>
+                                <div class="form-group">
+                                    <input class="input" type="file" name="s" required>
+                                </div>
+								<h5>Thired Image</h5>
+                                <div class="form-group">
+                                    <input class="input" type="file" name="t" required>
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="f1" placeholder="Brand" required>
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="f1" placeholder="feature 1" required>
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="f2" placeholder="feature 2" required>
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="f3" placeholder="feature 3" required>
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="f4" placeholder="feature 4" required>
+                                </div>
+								<div class="form-group">
+                                    <input class="input" type="text" name="color" placeholder="color" required>
+                                </div>
+								<h5>Discription</h5>
+                                <div class="form-group">
+                                    <input class="input" type="text" name="dis" required>
+                                </div>
+								<h5>Quantity</h5>
+                                <div class="form-group">
+                                    <input class="input" type="number" name="qut" required>
+                                </div>
+								
+                                <input type="submit" class="primary-btn order-submit">
+
+                            </form>
+							
+							<div class="form-group">
+								
+							</div>
+						</div>
+						<!-- /Billing Details -->
+
+						<!-- Shiping Details -->
+						
+						<!-- /Shiping Details -->
+
+						
+					</div>
+
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		<!-- NEWSLETTER -->
+		<div id="newsletter" class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<div class="col-md-12">
+						
+					</div>
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /NEWSLETTER -->
+
+		<!-- FOOTER -->
+		<footer id="footer">
+			<!-- top footer -->
+			<div class="section">
+				<!-- container -->
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">About Us</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
+								<ul class="footer-links">
+									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
+									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
+									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-3 col-xs-6">
+							<div class="footer">
+								<h3 class="footer-title">Categories</h3>
+								<ul class="footer-links">
+									<li><a href="ad_laptop">Laptops</a></li>
+									<li><a href="ad_smartphone">Smartphones</a></li>
+									<li><a href="ad_camera">Cameras</a></li>
+									<li><a href="ad_headphone">HeadPhones</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="clearfix visible-xs"></div>
+
+						
+
+						
+					</div>
+					<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /top footer -->
+
+			<!-- bottom footer -->
+			<div id="bottom-footer" class="section">
+				<div class="container">
+					<!-- row -->
+					<div class="row">
+						<div class="col-md-12 text-center">
+							<ul class="footer-payments">
+								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
+								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
+								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
+							</ul>
+							<span class="copyright">
+								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+								since 2024							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+							</span>
+						</div>
+					</div>
+						<!-- /row -->
+				</div>
+				<!-- /container -->
+			</div>
+			<!-- /bottom footer -->
+		</footer>
+		<!-- /FOOTER -->
+
+		<!-- jQuery Plugins -->
+		<script src="{% static 'js/jquery.min.js'%}'%}"></script>
+		<script src="{% static 'js/bootstrap.min.js'%}'%}"></script>
+		<script src="{% static 'js/slick.min.js'%}'%}"></script>
+		<script src="{% static 'js/nouislider.min.js'%}'%}"></script>
+		<script src="{% static 'js/jquery.zoom.min.js'%}'%}"></script>
+		<script src="{% static 'js/main.js'%}"></script>
+
+	</body>
+</html>

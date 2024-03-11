@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Font */
+  --font-size: 0.9375rem;
+  /* Colors */
+  --white: hsl(0, 6%, 7%);
+  --light-gray: hsl(212, 45%, 89%);
+  --grayish-blue: hsl(220, 15%, 55%);
+  --dark-blue: hsl(218, 44%, 22%);
+  /* Border Radius */
+  --border-radius: 1.125rem;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
+  padding: 50px 0; /* For Extra Space */
+  font-family: "Outfit", sans-serif;
+  font-size: var(--font-size);
+  font-weight: 400;
+  background-color: var(--light-gray);
+}
+
+.main {
+  min-height: calc(100vh - 100px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrcode-wrapper {
+  width: 20.125rem;
+  padding: 1.125rem;
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+}
+
+.qrcode-wrapper .qrcode-image {
+  overflow: hidden;
+  border-radius: calc(var(--border-radius) / 2);
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.qrcode-image img {
+  max-width: 100%;
+  display: block;
+  margin-left: 40px;
+  background: no-repeat center / cover;
+}
+
+.qrcode-wrapper .qrcode-text {
+  text-align: center;
+  padding: 1.375rem 1rem;
+}
+
+.qrcode-text h1 {
+  font-size: 1.375rem;
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+}
+
+.qrcode-text p {
+  color: var(--grayish-blue);
+  font-size: var(--font-size);
+  line-height: 1.3;
+}
+
+</style>
+<body>
+  <h5 style="margin-left: 30px;"><a href="../user" style="text-decoration: none; color: black;">Cancel</a></h5>
+    <main class="main">
+        <div class="qrcode-wrapper">
+          <div class="qrcode-image">
+            <img src="data:image/gif;base64,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" alt="QR Code Image" />
+          </div>
+          
+        </div>
+      </main>
+<script>function htmlEncode (value){
+  let qrcode = new QRCode("qrcode");
+
+function makeCode () {
+	qrcode.makeCode("https://github.com/jeromeetienne/jquery-qrcode");
+}
+
+makeCode();
+}
+    </script>
+</body>
+</html>
